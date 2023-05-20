@@ -1,0 +1,49 @@
+{
+   "input":{
+      "dataframes":[
+         {
+            "name":"employee_catalog",
+            "format":"glue_catalog",
+            "glue_catalog_reference": {
+                "database_name": "demodb",
+                "table_name": "employee"
+            }
+         },
+         {
+            "name":"department_csv",
+            "location":"s3://etlframework-418344540965-data-us-east-1/department/",
+            "format":"csv",
+            "csv_header":"true",
+            "csv_delimiter":",",
+            "csv_quote":"\""
+         },
+         {
+            "name":"diseases_parquet",
+            "location":"s3://etlframework-418344540965-data-us-east-1/diseases/",
+            "format":"parquet"
+         }
+      ]
+   },
+   "output":{
+      "dataframes":[
+         {
+            "name":"out1",
+            "location":"s3://etlframework-418344540965-data-us-east-1/out1/",
+            "glue_catalog_reference":{
+                "database_name": "demodb",
+                "table_name": "out1"
+            },
+            "format":"glueparquet"
+         },
+         {
+            "name":"out2",
+            "location":"s3://etlframework-418344540965-data-us-east-1/out2/",
+            "glue_catalog_reference":{
+                "database_name": "demodb",
+                "table_name": "out2"
+            },
+            "format":"glueparquet"
+         }
+      ]
+   }
+}
